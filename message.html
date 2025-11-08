@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Us</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">MyCompany</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Our Profile</a></li>
+            <li><a href="message.html">Message Us</a></li>
+        </ul>
+    </nav>
+
+    <section class="form-container">
+        <h2>Message Us</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="tel" id="phone" placeholder="Phone Number">
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        
+        <div id="form-result">
+            <!-- Hasil form akan muncul di sini -->
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
