@@ -18,7 +18,7 @@
 
     <section class="banner">
         <h1>Hi <span id="user-name">Visitor</span>, Welcome To Website</h1>
-        <p>I'm adalah website latihan pertama</p>
+        <p>Ini adalah website latihan pertama</p>
         <div class="banner-image">
             <!-- Placeholder untuk gambar 1366x578 -->
             <div class="image-placeholder">
@@ -33,6 +33,50 @@
             <div class="city">Jakarta</div>
             <div class="city">Bandung</div>
             <div class="city">Surabaya</div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="message-us">
+        <h2>Message Us</h2>
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="name"><strong>Name</strong></label>
+                <input type="text" id="name" placeholder="Name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="birthdate"><strong>Tanggal Lahir</strong></label>
+                <input type="date" id="birthdate" required>
+            </div>
+            
+            <div class="form-group">
+                <label><strong>Jenis Kelamin</strong></label>
+                <div class="gender-options">
+                    <label class="radio-option">
+                        <input type="radio" name="gender" value="Laki-Laki" required> 
+                        <span class="radio-circle"></span>
+                        Laki-Laki
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="gender" value="Perempuan"> 
+                        <span class="radio-circle"></span>
+                        Perempuan
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="message"><strong>Pesan</strong></label>
+                <textarea id="message" placeholder="Pesan" required rows="5"></textarea>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+        
+        <div id="form-result">
+            <!-- Hasil form akan muncul di sini -->
         </div>
     </section>
 

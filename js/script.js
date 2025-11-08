@@ -52,25 +52,31 @@ function showFormData() {
     const birthdate = document.getElementById('birthdate').value;
     const gender = document.querySelector('input[name="gender"]:checked').value;
     const message = document.getElementById('message').value;
+    const currentTime = new Date().toString();
     
     const resultDiv = document.getElementById('form-result');
     resultDiv.innerHTML = `
-        <h3>Data Submitted:</h3>
-        <p><strong>Current time:</strong> ${new Date().toString()}</p>
+        <h3>Form Submitted Successfully!</h3>
+        <p><strong>Current time:</strong> ${currentTime}</p>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Tanggal Lahir:</strong> ${formatDate(birthdate)}</p>
         <p><strong>Jenis Kelamin:</strong> ${gender}</p>
         <p><strong>Pesan:</strong> ${message}</p>
     `;
     
-    // Reset form
-    document.getElementById('contact-form').reset();
+    // Scroll ke hasil form
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+    
+    // Reset form (opsional)
+    // document.getElementById('contact-form').reset();
 }
 
 function formatDate(dateString) {
     const date = new Date(dateString);
-    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-    return date.toLocaleDateString('id-ID', options);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
 }
 
 // Initialize based on current page
@@ -80,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.pathname === '/' || 
         window.location.pathname.endsWith('/')) {
         displayWelcome();
+        initializeForm(); // Juga initialize form di homepage
     }
     
     // Message Us page - Form initialization
