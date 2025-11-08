@@ -1,45 +1,44 @@
 // Welcome Message di Homepage
 function displayWelcome() {
     const userName = prompt("Masukkan nama Anda:") || "Visitor";
-    document.getElementById('welcome-message').textContent = `Hi ${userName}`;
-}
-
-// Panggil fungsi ketika homepage loaded
-if (window.location.pathname.includes('index.html') || 
-    window.location.pathname === '/') {
-    window.onload = displayWelcome;
+    document.getElementById('user-name').textContent = userName;
 }
 
 // Form Validation & Display Result
-if (window.location.pathname.includes('message.html')) {
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        if (validateForm()) {
-            showFormData();
-        }
-    });
+function initializeForm() {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateForm()) {
+                showFormData();
+            }
+        });
+    }
 }
 
 function validateForm() {
     const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
+    const birthdate = document.getElementById('birthdate').value;
+    const gender = document.querySelector('input[name="gender"]:checked');
     const message = document.getElementById('message').value.trim();
     
-    // Validasi nama
     if (name === '') {
         alert('Nama harus diisi');
         return false;
     }
     
-    // Validasi email
-    const emailRegex = /^\S+@\S+\.\S+$/;
-    if (!emailRegex.test(email)) {
-        alert('Format email tidak valid');
+    if (!birthdate) {
+        alert('Tanggal lahir harus diisi');
         return false;
     }
     
-    // Validasi message
+    if (!gender) {
+        alert('Jenis kelamin harus dipilih');
+        return false;
+    }
+    
     if (message === '') {
         alert('Pesan harus diisi');
         return false;
@@ -50,19 +49,41 @@ function validateForm() {
 
 function showFormData() {
     const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
+    const birthdate = document.getElementById('birthdate').value;
+    const gender = document.querySelector('input[name="gender"]:checked').value;
     const message = document.getElementById('message').value;
     
     const resultDiv = document.getElementById('form-result');
     resultDiv.innerHTML = `
-        <h3>Form Submitted Successfully!</h3>
+        <h3>Data Submitted:</h3>
+        <p><strong>Current time:</strong> ${new Date().toString()}</p>
         <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-        <p><strong>Message:</strong> ${message}</p>
+        <p><strong>Tanggal Lahir:</strong> ${formatDate(birthdate)}</p>
+        <p><strong>Jenis Kelamin:</strong> ${gender}</p>
+        <p><strong>Pesan:</strong> ${message}</p>
     `;
     
     // Reset form
     document.getElementById('contact-form').reset();
 }
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    return date.toLocaleDateString('id-ID', options);
+}
+
+// Initialize based on current page
+document.addEventListener('DOMContentLoaded', function() {
+    // Homepage - Welcome message
+    if (window.location.pathname.includes('index.html') || 
+        window.location.pathname === '/' || 
+        window.location.pathname.endsWith('/')) {
+        displayWelcome();
+    }
+    
+    // Message Us page - Form initialization
+    if (window.location.pathname.includes('message.html')) {
+        initializeForm();
+    }
+});

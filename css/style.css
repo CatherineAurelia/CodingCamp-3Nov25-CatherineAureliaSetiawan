@@ -8,6 +8,8 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    color: #333;
+    background-color: #fff;
 }
 
 /* Navigation */
@@ -20,47 +22,246 @@ nav {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
 nav ul {
     display: flex;
     list-style: none;
+    gap: 2rem;
 }
 
-nav ul li {
-    margin-left: 2rem;
-}
-
-nav a {
+nav ul li a {
     text-decoration: none;
     color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #007bff;
 }
 
 /* Banner */
 .banner {
-    padding: 4rem 2rem;
     text-align: center;
-    background-color: #e9ecef;
+    padding: 3rem 2rem;
+    background-color: #f8f9fa;
 }
 
-/* Form */
+.banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.banner p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.banner-image {
+    margin: 2rem auto;
+    max-width: 1366px;
+}
+
+.image-placeholder {
+    background-color: #e9ecef;
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #6c757d;
+    font-weight: bold;
+}
+
+/* Headquarter Section */
+.headquarter {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #fff;
+}
+
+.headquarter h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.cities {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.city {
+    padding: 1.5rem 3rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-width: 150px;
+}
+
+/* Form Styles */
 .form-container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 2rem auto;
     padding: 2rem;
 }
 
-form input, form textarea {
-    width: 100%;
-    padding: 0.5rem;
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #333;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
     margin-bottom: 1rem;
-    border: 1px solid #ddd;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.gender-options {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.5rem;
+}
+
+.gender-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: normal;
+    cursor: pointer;
 }
 
 button {
-    padding: 0.5rem 1rem;
+    width: 100%;
+    padding: 1rem;
     background-color: #007bff;
     color: white;
     border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Result Styles */
+#form-result {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+}
+
+#form-result h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+#form-result p {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Profile Page Styles */
+.profile-banner {
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.about, .vision-mission {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+.about h2, .vision-mission h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.about p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: center;
+}
+
+.vision, .mission {
+    margin-bottom: 2rem;
+}
+
+.vision h3, .mission h3 {
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.mission ul {
+    list-style-position: inside;
+    margin-left: 1rem;
+}
+
+.mission li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: #343a40;
+    color: white;
 }
 
 /* Responsive Design */
@@ -72,18 +273,54 @@ button {
     
     nav ul {
         margin-top: 1rem;
+        gap: 1rem;
     }
     
-    nav ul li {
-        margin: 0 0.5rem;
+    .banner h1 {
+        font-size: 2rem;
     }
     
-    .banner {
-        padding: 2rem 1rem;
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .cities {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .city {
+        width: 200px;
+    }
+    
+    .gender-options {
+        flex-direction: column;
+        gap: 1rem;
     }
     
     .form-container {
         margin: 1rem;
         padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        padding: 2rem 1rem;
+    }
+    
+    .banner h1 {
+        font-size: 1.5rem;
+    }
+    
+    .headquarter {
+        padding: 2rem 1rem;
+    }
+    
+    .about, .vision-mission {
+        margin: 2rem auto;
+        padding: 0 1rem;
     }
 }
